@@ -82,9 +82,42 @@ test("Renders main element", () => {
 }
 ```
 
-# Setting tw-macro
+# Setting Emotion
 
 ```shell
 $ yarn add @emotion/react @emotion/styled
-$ yarn add -D twin.macro@rc @emotion/babel-plugin-jsx-pragmatic babel-plugin-macros tailwindcss
+$ yarn add -D @emotion/babel-plugin
 ```
+
+```typescript
+// vite.config.ts
+
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react",
+      babel: {
+        plugins: ["@emotion/babel-plugin"],
+      },
+    }),
+  ],
+});
+```
+
+```typescript
+// tsconfig.json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "jsxImportSource": "@emotion/react"
+  }
+  ...
+}
+```
+
+# Setting tw-macro
