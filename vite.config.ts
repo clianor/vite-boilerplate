@@ -23,10 +23,12 @@ export default defineConfig({
             "twin.macro",
           ],
         ],
+        ignore: ["\x00commonjsHelpers.js"],
       },
     }),
   ],
   esbuild: {
+    jsxInject: `import React from 'react'`,
     logOverride: { "this-is-undefined-in-esm": "silent" },
   },
 });
