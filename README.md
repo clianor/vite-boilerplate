@@ -159,3 +159,6 @@ module.exports = {
 ```
 
 # Setting tw-macro
+```shell
+$ yarn add -D twin.macro @emotion/babel-plugin-jsx-pragmatic babel-plugin-macros
+```
