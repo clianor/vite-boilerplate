@@ -1,9 +1,18 @@
-import { useCallback, useState } from "react";
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 
-function App() {
+function App(): ReactElement {
   const [count, setCount] = useState(0);
-  const decrease = useCallback(() => setCount((prev) => prev - 1), []);
-  const increase = useCallback(() => setCount((prev) => prev + 1), []);
+
+  const onDecrease = useCallback(() => setCount(count - 1), [count]);
+  const onIncrease = useCallback(() => setCount(count + 1), [count]);
+
+  useEffect(() => {
+    const interval = setInterval(() => console.log('test'), 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <>
       <main
@@ -15,7 +24,7 @@ function App() {
           <button
             tw="flex items-center justify-center border border-purple-500 px-2"
             type="button"
-            onClick={decrease}
+            onClick={onDecrease}
           >
             -
           </button>
@@ -23,7 +32,7 @@ function App() {
           <button
             tw="flex items-center justify-center border border-purple-500 px-2"
             type="button"
-            onClick={increase}
+            onClick={onIncrease}
           >
             +
           </button>
