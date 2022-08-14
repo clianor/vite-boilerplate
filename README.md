@@ -120,4 +120,42 @@ export default defineConfig({
 }
 ```
 
+# Setting TailwindCSS
+
+```shell
+$ yarn add -D tailwindcss postcss autoprefixer
+$ npx tailwindcss init -p
+```
+
+```js
+// tailwind.config.cjs
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+```js
+// postcss.config.cjs
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
+```json
+// package.json
+{
+  ...
+  "type": "commonjs",
+  ...
+}
+```
+
 # Setting tw-macro
